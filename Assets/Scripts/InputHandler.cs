@@ -31,10 +31,5 @@ public class InputHandler : MonoBehaviour
     void HandleMoveInput()
     {
         characterMovement.AddMoveInput(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
-
-        /*float forwardInput = Input.GetAxis("Vertical");
-        float rightInput = Input.GetAxis("Horizontal");
-        characterMovement.AddMoveInput(forwardInput, rightInput);
-        */
     }
 }
