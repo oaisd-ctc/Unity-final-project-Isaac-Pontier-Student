@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
@@ -44,7 +43,7 @@ public class Timer : MonoBehaviour
         else
         {
             //ResetTimer();
-            Debug.Log("door opens");
+            Debug.Log("timer expire");
         }
 
         secondDigitMaterial.SetTexture("_MainTex", textures[onesPlace]);
