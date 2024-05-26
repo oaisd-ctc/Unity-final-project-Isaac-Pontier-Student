@@ -7,40 +7,31 @@ public class Button : MonoBehaviour
     private Vector3 upPosition;
     private Vector3 downPosition;
     [SerializeField] private Timer timerScript;
-    private Button buttonScript;
-    
+    [SerializeField] private PlayerInteraction playerInteractionScript;
+    //These need to be set in the editor because getComponent<>() only gets the component FROM THE SAME GAMEOBJECT THIS SCRIPT IS ATTACHED TO
+
     // Start is called before the first frame update
     void Start()
     {
-        //timerScript = GetComponent<Timer>(); //why is this not finding the component
         upPosition = transform.position;
         downPosition = new Vector3(0.00f, 1.19f, -1.10f);
-        buttonScript = GetComponent<Button>();
     }
 
-    void OnEnable()
+    void Update()
     {
-
+        transform.position = upPosition;
     }
 
-    // Update is called once per frame
-    public void Update()
+    //!! Buttonpress can only run while you're looking at it and holding the key
+    public void ButtonPress()
     {
-        if (buttonScript.enabled == true)
+        if (Input.GetKeyDown(KeyCode.Mouse1)) //only goes when the key is clicked at start while looking at button
         {
-            timerScript.ResetTimer();
-            if(Input.GetKey(KeyCode.Mouse0))
-            {
-            transform.position = downPosition;
-            }
-            else
-            {
-                transform.position = upPosition;
-                buttonScript.enabled = false;
-            }
+            timerScript.ResetTimer(); //this needs to be done once without using any Input in order to fix all problems
+            //problem is that if you start by clicking off of it, it won't reset timer but it will lower the button. Need to trigger reset once then this downPosition BS
         }
-        
-    }
+        transform.position = downPosition;
 
-    //new plan: enable/disable button script when interactionobject event is triggered, then have the button script handle up/down and reset
+        // Need to trigger Reset whenever ButtonPress is active, but it only triggers once before buttonpress stops running
+    }
 }

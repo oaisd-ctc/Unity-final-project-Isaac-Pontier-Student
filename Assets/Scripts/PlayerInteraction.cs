@@ -16,12 +16,15 @@ public class PlayerInteraction : MonoBehaviour
         
         if (raycastHit.collider != null)
         {
-            targetInteraction = raycastHit.collider.gameObject.GetComponent<InteractionObject>();
+            targetInteraction = raycastHit.collider.gameObject.GetComponent<InteractionObject>(); //does the raycastHit have an interaction script
         }
-        if (targetInteraction && Input.GetKeyDown(KeyCode.Mouse0)) //could also check here if it's enabled, but I'm not worrying about a progression lock yet
+    }
+
+    public void TryInteract()
+    {
+        if (targetInteraction != null) //if the targeted object does have an interaction script
         {
-            targetInteraction.Interact();
-            
+            targetInteraction.Interact(); //raises that object's event
         }
     }
 }

@@ -11,10 +11,18 @@ public class Timer : MonoBehaviour
     public Material secondDigitMaterial;
     public Texture[] textures = new Texture[10];
 
+    public SpawnLocation location1;
+    public SpawnLocation location2;
+    public SpawnLocation location3;
+    public SpawnLocation location4;
+
     // Start is called before the first frame update
     void Start()
     {
-        ResetTimer();
+        //this is just ResetTimer but without spawning an enemy
+        timer = 30.99f; 
+        firstDigitMaterial.SetTexture("_MainTex", textures[3]);
+        secondDigitMaterial.SetTexture("_MainTex", textures[0]);
     }
 
     // Update is called once per frame
@@ -51,8 +59,19 @@ public class Timer : MonoBehaviour
 
     public void ResetTimer()
     {
-        timer = 31.0f; //to display the three-zero digits too
+        timer = 30.99f; //to display the three-zero digits too
         firstDigitMaterial.SetTexture("_MainTex", textures[3]);
         secondDigitMaterial.SetTexture("_MainTex", textures[0]);
+        
+        if (!location1.Spawn())
+        {
+            if (!location2.Spawn())
+            {
+                if (!location3.Spawn())
+                {
+                    location4.Spawn();
+                }
+            }
+        }
     }
 }
