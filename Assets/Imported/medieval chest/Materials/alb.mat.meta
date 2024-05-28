@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e68aed1fa8bdcc74983ea0d5edbdd2cb
+timeCreated: 1464019521
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 63534
+  packageName: Medieval chest
+  packageVersion: 1.0
+  assetPath: Assets/medieval chest/Materials/alb.mat
+  uploadId: 121161

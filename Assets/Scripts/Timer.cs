@@ -16,6 +16,11 @@ public class Timer : MonoBehaviour
     public SpawnLocation location3;
     public SpawnLocation location4;
 
+    [SerializeField] private EscapeDoor escapeDoorScript;
+
+    [SerializeField] private Collider buttonCollider;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,13 +53,35 @@ public class Timer : MonoBehaviour
         {
             firstDigitMaterial.SetTexture("_MainTex", textures[0]);
         }
-        else
+        else //timer runs out
         {
-            //ResetTimer();
-            Debug.Log("timer expire");
+            //GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy"); //returns an array
+            
+            if (location1.spotFilled)
+            {
+                location1.Kill();
+            }
+            if (location2.spotFilled)
+            {
+                location2.Kill();
+            }
+            if (location3.spotFilled)
+            {
+                location3.Kill();
+            }
+            if (location4.spotFilled)
+            {
+                location4.Kill();
+            }
+
+            escapeDoorScript.OpenDoor(); //open door
+            buttonCollider.enabled = false; //lock button
         }
 
-        secondDigitMaterial.SetTexture("_MainTex", textures[onesPlace]);
+        if (9 >= onesPlace && onesPlace >= 0) //update ones place
+        {
+            secondDigitMaterial.SetTexture("_MainTex", textures[onesPlace]);
+        }
     }
 
     public void ResetTimer()

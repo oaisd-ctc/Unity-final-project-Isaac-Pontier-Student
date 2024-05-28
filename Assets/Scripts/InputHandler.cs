@@ -34,14 +34,14 @@ public class InputHandler : MonoBehaviour
     void HandleMoveInput()
     {
         characterMovement.AddMoveInput(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")); //alt Input.GetAxisRaw()
-        if (Input.GetKey(KeyCode.LeftShift))
+        /* if (Input.GetKey(KeyCode.LeftShift))
         {
             characterMovement.moveSpeed = 9.0f;
         }
         else
         {
             characterMovement.moveSpeed = 6.0f;
-        }
+        } */
     }
 
     void HandleInteractionInput()

@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
+  enemyHealth: 3
 --- !u!65 &5866028682834292340
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -71,8 +72,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.3352499, y: 3.637889, z: 3.099723}
-  m_Center: {x: -0.000000028508056, y: 0.4896416, z: -0.03528944}
+  m_Size: {x: 1.273389, y: 3.2667243, z: 2.843443}
+  m_Center: {x: 0.030930556, y: 0.41894287, z: -0.039708417}
 --- !u!1001 &1375353686087992345
 PrefabInstance:
   m_ObjectHideFlags: 0
